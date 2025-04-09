@@ -130,52 +130,6 @@ def combine_data(news_locations, external_locations):
     logger.info(f"Combined {len(result)} unique locations")
     return result
 
-# def generate_geojson(locations):
-#     """Generate GeoJSON from location data."""
-#     features = []
-    
-#     # Create a dictionary to track duplicate coordinates
-#     coord_adjustment = {}
-    
-#     for loc in locations:
-#         name = loc["name"]
-#         coords = geocode_location(name)
-        
-#         if coords:
-#             # Check if these coordinates already exist
-#             coord_key = f"{coords[0]:.4f},{coords[1]:.4f}"
-            
-#             if coord_key in coord_adjustment:
-#                 # Slightly adjust coordinates to avoid overlap
-#                 coord_adjustment[coord_key] += 1
-#                 offset = 0.0005 * coord_adjustment[coord_key]
-#                 coords[0] += offset
-#                 coords[1] += offset
-#             else:
-#                 coord_adjustment[coord_key] = 0
-            
-#             feature = {
-#                 "type": "Feature",
-#                 "geometry": {
-#                     "type": "Point",
-#                     "coordinates": coords
-#                 },
-#                 "properties": {
-#                     "name": name,
-#                     "crime_count": loc["crime_count"],
-#                     "safety_level": loc["safety_level"]
-#                 }
-#             }
-#             features.append(feature)
-    
-#     geojson = {
-#         "type": "FeatureCollection",
-#         "features": features
-#     }
-    
-#     logger.info(f"Generated map data with {len(features)} markers")
-#     return geojson
-
 
 def generate_geojson(locations):
     """Generate GeoJSON from location data with timestamps."""

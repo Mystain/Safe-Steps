@@ -49,8 +49,8 @@ def fix_coordinates():
                 },
                 "properties": {
                     "name": location_name.title(),
-                    "crime_count": 0,  # Default value, update if you have actual data
-                    "safety_level": "green"  # Default value
+                    "crime_count": 0,  # Default value
+                    "safety_level": "green"  
                 }
             }
             

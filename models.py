@@ -30,16 +30,3 @@ class Incident(db.Model):
     status = db.Column(db.String(50), default="reported")
     
     user = db.relationship('Users', backref=db.backref('incidents', lazy=True))
-
-
-
-# class OTPVerification(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-#     otp = db.Column(db.String(10), nullable=False)
-#     purpose = db.Column(db.String(50), nullable=False)
-#     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-#     expires_at = db.Column(db.DateTime, nullable=False)
-    
-#     def __repr__(self):
-#         return f'<OTPVerification {self.id}>'

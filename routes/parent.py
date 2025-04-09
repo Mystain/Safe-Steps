@@ -5,8 +5,6 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from models import db, Users
 
 from utils import generate_analytics_data
-# Import your User model and db
-# from models import db, User
 
 parent_bp = Blueprint("parent", __name__)
 

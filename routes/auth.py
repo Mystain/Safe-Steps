@@ -38,37 +38,6 @@ def index():
     else:
         return redirect(url_for('auth.login'))
 
-# @auth_bp.route("/register", methods=["GET", "POST"])
-# def register():
-#     if request.method == "POST":
-#         username = request.form.get("username")
-#         email = request.form.get("email")
-#         password = request.form.get("password")
-#         role = request.form.get("role", "parent")  # Default to "parent" if empty
-
-#         # Check if username or email exists
-#         if Users.query.filter_by(username=username).first():
-#             flash("Username already taken. Please choose another.", "danger")
-#             return redirect(url_for("auth.register"))
-#         if Users.query.filter_by(email=email).first():
-#             flash("Email already exists. Please try logging in.", "warning")
-#             return redirect(url_for("auth.register"))
-
-#         # Prevent users from registering as admin through form manipulation
-#         if role == "admin":
-#             role = "parent"  # Default to parent if someone tries to register as admin
-
-#         # Hash password and create user
-#         hashed_password = generate_password_hash(password, method="pbkdf2:sha256", salt_length=16)
-#         user = Users(username=username, email=email, password=hashed_password, role=role)
-#         db.session.add(user)
-#         db.session.commit()
-
-#         flash("Account created successfully! Please log in.", "success")
-#         return redirect(url_for("auth.login"))
-
-#     return render_template("sign_up.html")
-
 @auth_bp.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

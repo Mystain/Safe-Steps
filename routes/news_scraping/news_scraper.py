@@ -100,7 +100,6 @@ def scrape_all_sources():
         # Check if article is crime-related (more lenient now)
         is_crime_related = any(keyword in title_lower or keyword in content_lower for keyword in crime_keywords)
         
-        # More lenient filtering - include if it's about Kurla, even if crime isn't explicitly mentioned
         if is_kurla_related:
             kurla_crime_articles.append(article)
     
